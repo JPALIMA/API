@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class PostController < applicatioController
   def index
     posts = Post.all
     render json: posts
@@ -12,18 +12,15 @@ class PostsController < ApplicationController
   def create
     post = Post.new(post_params)
     if post.save
-      render json: post, status: :created
-    else
       render json: post.errors, status: :unprocessable_entity
     end
   end
 
-  #Outras ações (update, delete) podem ser adicionadas aqui
+  #outros açoes/atualizações (update, delete) podem ser adicionadas
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:tile, content)
   end
 end
-
