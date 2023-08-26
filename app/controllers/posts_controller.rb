@@ -1,6 +1,6 @@
 class PostController < applicatioController
   def index
-    posts = Post.all
+    posts = Posts.all
     render json: posts
   end
 
@@ -21,6 +21,6 @@ class PostController < applicatioController
   private
 
   def post_params
-    params.require(:post).permit(:tile, content)
+    params.require(:post).permit(:title, content)
   end
 end
